@@ -142,8 +142,9 @@
 // let first="hii"
 // let secon="naju"
 // console.log(first.concat(" ",secon));
+
 // for (let i = 0; i < secon.length; i++) {
-//     first+=secon[i]
+//     first=first+secon[i]
 // }
 // console.log(first);
 
@@ -162,3 +163,9 @@
 // }
 // const value = checkPalindrome(string);
 // console.log(value);
+
+// let string="malayalam"
+
+// for (let i = string.length-1; i >=0 ; i--) {
+//     console.log(string[i]);
+// }
