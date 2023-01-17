@@ -107,59 +107,58 @@ console.log(heap.getList());
 // [ 5, 3, 4, 2 ]
 // [ 7, 5, 4, 2, 3 ]
 
+
+
 class BinaryHeap {
   constructor() {
     this.list = [];
   }
   maxHeapIfy = (arr, n, i) => {
     let largest = i;
-    l = 2 * i + 1;
-    r = 2 * i + 2;
-    if (i < n && arr[l] > arr[largest]) {
+    l = i * 2 + 1;
+    r = i * 2 + 2;
+
+    if (l < n && arr[l] > arr[largest]) {
       largest = l;
     }
-    if (i < n && arr[r] > arr[largest]) {
+
+    if (r < n && arr[r] > arr[largest]) {
       largest = r;
     }
-
     if (largest != i) {
-      let tem = arr[i];
-      arr[i] = arr[largest];
-      arr[largest] = tem;
-      this.maxHeapIfy(arr,n,largest)
+      let temp = arr[largest];
+      arr[largest] = arr[i];
+      arr[i] = temp;
+      this.maxHeapIfy(this.list, this.list.length, largest);
     }
   };
-
-  insert=(num)=>{
-     const size=this.list.size
-     if(size===0){
-       this.list.push(num)
-     }else{
-      this.list.push(num)
-
-      for (let i = parseInt(this.list.length/2-1) ; i >=0 ; i--) {
-           this.maxHeapIfy(this.list,this.list.length,i)
+  insert = (num) => {
+    size = this.list.length;
+    if (size === 0) {
+      this.list.push(num);
+    } else {
+      this.list.push(num);
+      for (let i = parseInt(this.list.length / 2 - 1); i >= 0; i--) {
+        this.maxHeapIfy(this.list, this.list.length, i);
       }
-     }
-  }
-
- findMax=()=>{
-  return this.list.length
- }
-
- delete=(num)=>{
-   let size=this.list.length
-   let i 
-   for ( i = 0; i < size; i++) {
-    if(num === this.list[i]){
-     break
     }
-   }
-    [this.list[i],this.list[size-1]]=[this.list[size-1],this.list[i]]
-    this.list.splice(size-1)
-    for (let i = parseInt(this.list.length/2-1) ; i >0; i--) {
-       this.maxHeapIfy(this.list,this.list.length,i)
-    } 
- }  
+  };
+  delete = (value) => {
+    const size = this.list.size;
+    let i;
+    for (let i = 0; i < size; i++) {
+      if (value === this.list[i]) {
+        break;
+      }
+    }
 
+    [this.list[size - 1], this.list[i]] = [this.list[i], this.list[size - 1]];
+    this.list.splice(size - 1);
+    for (let i = parseInt(this.list.length / 2 - 1); i >= 0; i++) {
+      this.maxHeapIfy(this.list, this.list.length, i);
+    }
+  };
 }
+
+
+

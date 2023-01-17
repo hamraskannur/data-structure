@@ -26,7 +26,6 @@ class TrieNode {
     return output.join("");
   };
 }
-
 class Trie {
   constructor() {
     this.root = new TrieNode(null);
@@ -115,9 +114,7 @@ class Trie {
   // removes a word from the trie.
   remove = function (word) {
     let root = this.root;
-
     if (!word) return;
-
     // recursively finds and removes a word
     const removeWord = (node, word) => {
       // check if current node contains the word
@@ -184,18 +181,195 @@ class TrieNode {
     this.children = {};
     this.end = false;
   }
+
   getWord = function () {
-    let output = [];
+    let outPut = [];
     let node = this;
+
     while (node != null) {
-      output.unshift(node.key);
+      outPut.unshift(node.key);
       node = node.parent;
     }
-    return output.join("");
+    return outPut.join("");
   };
 }
-class Trie{
-  constructor(){
-    this.root=new TrieNode(null)
+
+
+class Trie {
+  constructor() {
+    this.root = new TrieNode(null);
   }
+
+  insert = function (word) {
+    node = this.root;
+    for (let i = 0; i < word.length; i++) {
+      if (!node.children[word[i]]) {
+        node.children[word[i]] = new TrieNode(word[i]);
+        node.children[word[i]].parent = node;
+      }
+      node = node.children[word[i]];
+      if (i == word.length - 1) {
+        node.end = true;
+      }
+    }
+  };
+
+  contains = function (word) {
+    let node = this.root;
+    let i;
+    for (i = 0; i < word.length; i++) {
+      if (node.children[word[i]]) {
+        node = node.children[word[i]];
+      } else {
+        return false;
+      }
+    }
+    return this.end;
+  };
+
+  find = function (prefix) {
+    let node = this.root;
+    let output = [];
+
+    for (let i = 0; i < prefix.length; i++) {
+      if (node.children[prefix[i]]) {
+        node = node.children[prefix[i]];
+      } else {
+        return output;
+      }
+    }
+    this.findAllWords(node, output);
+
+    return output;
+  };
+  findAllWords = (node, arr) => {
+    if (node.end) {
+      arr.unshift(node.getWord());
+    }
+
+    for (let child in node.children) {
+      this.findAllWords(node.children[child], arr);
+    }
+  };
+
+  remove = function (word) {
+    let root = this.root;
+    if (!word) return;
+    const removeWord = (node, word) => {
+      if (node.end && node.getWord() === word) {
+        let hasChildren = Object.keys(node.children).length > 0;
+        if (hasChildren) {
+          node.end = false;
+        } else {
+          node.parent.children = {};
+        }
+        return true;
+      }
+      for (let key in node.children) {
+        removeWord(node.children[key], word);
+      }
+      return false;
+    };
+    removeWord(root, word);
+  };
+}
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class TrieNode {
+  constructor(key) {
+    this.key = key;
+    this.parent = null;
+    this.children = {};
+    this.end = false;
+  }
+
+  getWord = function () {
+    let outPut = [];
+    let node = this;
+    while (node != null) {
+      outPut.unshift(node.key);
+      node = node.parent;
+    }
+    return outPut.join("");
+  };
+}
+
+class Trie {
+  constructor() {
+    this.root = new TrieNode(null);
+  }
+
+  insert = function (word) {
+    node = this.root;
+    for (let i = 0; i < word.length; i++) {
+      if (!node.children[word[i]]) {
+        node.children[word[i]] = new TrieNode(word[i]);
+        node.children[word[i]].parent = node;
+      }
+      node = node.children[word[i]];
+
+      if (i === word.length - 1) {
+        node.end = true;
+      }
+    }
+  };
+  contains = function (word) {
+    node = this.root;
+    for (let i = 0; i < word.length; i++) {
+      if (node.children[word[i]]) {
+        node = node.children[word[i]];
+      } else {
+        return false;
+      }
+    }
+    return node.end;
+  };
+
+  remove = function (word) {
+    node = this.root;
+    if (!node) return null;
+    const removeWord = function (node, word) {
+      if (node.end && node.getWord() === word) {
+        let hasChildren = Object.keys(node.children).length > 0;
+        if (hasChildren) {
+          node.end = false;
+        } else {
+          node.parent.children = {};
+        }
+        return true;
+      }
+      for (let key in node.children) {
+        this.removeWord(node.children[key], word);
+      }
+      return false;
+    };
+
+    removeWord(node, word);
+  };
+
+  find = function (prefix) {
+    let node = this.root;
+    let output = [];
+    for (let i = 0; i < prefix.length; i++) {
+      if (node.children[prefix[i]]) {
+        node = node.children[prefix[i]];
+      } else {
+        return output;
+      }
+    }
+    this.findAllWords(node, output);
+
+    return output;
+  };
+
+  findAllWords = (node, arr) => {
+    if (node.end) {
+      arr.unshift(node.getWord());
+    }
+
+    for (let child in node.children) {
+      this.findAllWords(node.children[child], arr);
+    }
+  };
 }
