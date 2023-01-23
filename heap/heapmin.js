@@ -129,7 +129,7 @@ class BinaryHeap {
       smallest = r;
     }
     if (smallest != i) {
-      let temp = arr[i];
+      let temp = arr[i];  
       arr[i] = arr[smallest];
       arr[smallest] = temp;
       this.minHeapIfy(this.list, this.list.length, smallest);

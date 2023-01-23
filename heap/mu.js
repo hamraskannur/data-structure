@@ -86,4 +86,5 @@ const heap = new Heap(array);
 // heap.peak()
 // heap.remove()
 heap.display()
-// heap.shiftDown(
+
+

@@ -179,13 +179,12 @@ class TrieNode {
     this.key = key;
     this.parent = null;
     this.children = {};
-    this.end = false;
+    this.end = false ;
   }
 
   getWord = function () {
     let outPut = [];
     let node = this;
-
     while (node != null) {
       outPut.unshift(node.key);
       node = node.parent;
@@ -193,7 +192,6 @@ class TrieNode {
     return outPut.join("");
   };
 }
-
 
 class Trie {
   constructor() {
@@ -275,7 +273,6 @@ class Trie {
 }
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 class TrieNode {
   constructor(key) {
     this.key = key;
@@ -285,13 +282,13 @@ class TrieNode {
   }
 
   getWord = function () {
-    let outPut = [];
     let node = this;
+    let outPut = [];
     while (node != null) {
       outPut.unshift(node.key);
       node = node.parent;
     }
-    return outPut.join("");
+    return false;
   };
 }
 
@@ -301,21 +298,20 @@ class Trie {
   }
 
   insert = function (word) {
-    node = this.root;
     for (let i = 0; i < word.length; i++) {
       if (!node.children[word[i]]) {
-        node.children[word[i]] = new TrieNode(word[i]);
+        node.children = new TrieNode(word[i]);
         node.children[word[i]].parent = node;
       }
       node = node.children[word[i]];
-
-      if (i === word.length - 1) {
+      if (word.length - 1 === word.length) {
         node.end = true;
       }
     }
+
   };
   contains = function (word) {
-    node = this.root;
+    let node = this.root;
     for (let i = 0; i < word.length; i++) {
       if (node.children[word[i]]) {
         node = node.children[word[i]];
@@ -325,13 +321,12 @@ class Trie {
     }
     return node.end;
   };
-
-  remove = function (word) {
-    node = this.root;
-    if (!node) return null;
-    const removeWord = function (node, word) {
+  delete = function (word) {
+    let node = this.root;
+    if (!node) return;
+    const removeWord = (node, word) => {
       if (node.end && node.getWord() === word) {
-        let hasChildren = Object.keys(node.children).length > 0;
+        hasChildren = Object.keys(node.key).length > 0;
         if (hasChildren) {
           node.end = false;
         } else {
@@ -339,37 +334,11 @@ class Trie {
         }
         return true;
       }
-      for (let key in node.children) {
+      for (key in node.children) {
         this.removeWord(node.children[key], word);
       }
-      return false;
+      return false
     };
-
     removeWord(node, word);
-  };
-
-  find = function (prefix) {
-    let node = this.root;
-    let output = [];
-    for (let i = 0; i < prefix.length; i++) {
-      if (node.children[prefix[i]]) {
-        node = node.children[prefix[i]];
-      } else {
-        return output;
-      }
-    }
-    this.findAllWords(node, output);
-
-    return output;
-  };
-
-  findAllWords = (node, arr) => {
-    if (node.end) {
-      arr.unshift(node.getWord());
-    }
-
-    for (let child in node.children) {
-      this.findAllWords(node.children[child], arr);
-    }
   };
 }
