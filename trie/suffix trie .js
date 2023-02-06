@@ -72,15 +72,15 @@ class trie {
 
 
 
-class SuffixTrie {
+class graph {
   constructor(string) {
     this.root = {};
     this.endSymbol = '*';
-    this.populateSuffixTrieFrom(string);
+    this.graph(string);
   }
 
   // O(n^2) time | O(n^2) space
-  populateSuffixTrieFrom(string) {
+  HeapSort(string) {
     for (let i = 0; i < string.length; i++)
       this.insertSubStringStartingAt(i, string);
   }
@@ -106,3 +106,5 @@ class SuffixTrie {
     return node.hasOwnProperty(this.endSymbol);
   }
 }
+
+

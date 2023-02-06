@@ -28,8 +28,7 @@ class Heap {
                 currentIndex = indexToShift;
                 leftIndex = this.leftChild(currentIndex)
             }else{
-                return
-            } 
+                return           } 
         }
         // this.shiftUp(endIndex)
     }
