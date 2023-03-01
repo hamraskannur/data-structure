@@ -2,7 +2,7 @@
 // Bigo O(n2)
 // The method works by examining each set of adjacent elements in the string, from left to right,
 //  switching their positions if they are out of order.
-   
+
 function bubbleSort(arr){
     let swapped
     do{
@@ -39,9 +39,9 @@ function insertSort(arr){
              j=j-1
         }
         arr[j+1]=numbertoinsert
-        
     }
 }
+
 // const arr = [8, 6, 25, 36, 78, 5]
 // insertSort(arr)
 // console.log(arr);

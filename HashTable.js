@@ -71,7 +71,7 @@
 //         const index = this.hash(key)
 //         const bucket = this.table[index]
 //         if (!bucket) {
-//             this.table[index] = [[key, value]]
+//             this.table[index] = [[key, value 
 //         } else {
 //             const samekeyitems = bucket.find(item => item[0] === key)
 //             if (samekeyitems) {
@@ -91,7 +91,7 @@
 //                 return samekeyitems[1]
 //             }
 //         }
-//         return undefined
+//         return undefined 
 //     }
 
 //     // o(1)
