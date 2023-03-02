@@ -69,7 +69,6 @@ class BinarySearchTree {
     this.postOrder(this.right);
     console.log(this.value);
   }
-
   levelOrder() {
     const queue = [];
     queue.push(this.root);
