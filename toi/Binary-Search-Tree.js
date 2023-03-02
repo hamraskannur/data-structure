@@ -1,4 +1,5 @@
 
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -74,7 +75,6 @@ class BinarySearchTree {
     queue.push(this.root);
     while (queue.length) {
       cur = queue.shift();
-      console.log(cur.value);
       if (cur.left) {
         queue.push(cur.left);
       }

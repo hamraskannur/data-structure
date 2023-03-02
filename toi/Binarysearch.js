@@ -1,3 +1,4 @@
+// o(logn)
 function binarySearch(arr, target) {
   let left = 0;
   let right = arr.length - 1;
@@ -16,5 +17,5 @@ function binarySearch(arr, target) {
   return -1;
 }
 
-arr = [1, 2, 3, 4, 5, 7, 8, 9, 10];
-console.log(binarySearch(arr, 1));
+arr = [1, 2, 3, 4, 5, 7, 8, 9, 10]
+console.log(binarySearch(arr, 10))

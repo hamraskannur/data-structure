@@ -70,17 +70,18 @@ class Stack {
   constructor() {
       this.items = []
   }
-    //  o(n)
+    //  o(1)
   push(elememt) {
       this.items.push(elememt)
   }
-    //  o(n)
+    //  o(1)
   pop() {
       this.items.pop()
   }
   peek() {
       return this.items[this.items.length - 1]
   }
+
   isEmpty() {
       return this.items.length === 0
   }
@@ -106,3 +107,4 @@ stack.pop()
 
 console.log(stack.size());
 console.log(stack.peek());
+

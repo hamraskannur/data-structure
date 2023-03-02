@@ -4,8 +4,6 @@
 //  slots, from which the desired value can be found. During lookup, the key is hashed 
 //  and the resulting hash indicates where the corresponding value is stored.
 
-
-
 // class HashTable {
 //     constructor(size) {
 //         this.table = new Array(size)
@@ -27,12 +25,12 @@
 //         return this.table[index]
 //     }
 //     remove(key) {
-// //         const index = this.hash(key)
-// //         this.table[index] = undefined
-// //     }
+//        const index = this.hash(key)
+//         this.table[index] = undefined
+//      }
 
-// //     display() {
-// //         for (let i = 0; i < this.table.length; i++) {
+//      display() {
+//          for (let i = 0; i < this.table.length; i++) {
 // //             if (this.table[i]) {
 // //                 console.log(i, this.table[i]);
 // //             }

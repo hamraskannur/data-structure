@@ -9,3 +9,4 @@ function checkPalindrome(string) {
   return "It is a palindrome";
 }
 console.log(checkPalindrome(string));
+

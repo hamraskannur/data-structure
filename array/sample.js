@@ -54,4 +54,20 @@
 //   }
   
 //   fibonacci(10);
-  
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+function getten(arr, n, sum, selected) {
+  if (sum === 10 ) {
+      console.log(`Elements ${selected} ===  10`);
+    } else if (sum < 10 && selected.length < n) {
+    for (let i = 0; i < arr.length; i++) {
+      let takeArr = arr.slice(i + 1);
+      getten(takeArr, n, sum + arr[i], selected.concat(arr[i]));
+    }
+  }
+}
+let selected=[]
+getten(arr, arr.length-1, 0, selected);
+
+

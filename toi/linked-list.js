@@ -122,6 +122,7 @@ class LinkeList {
     this.head = prev;
   }
 
+
   print() {
     if (this.isEmpty()) {
       console.log("kuist us empty");
