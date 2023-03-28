@@ -1,4 +1,4 @@
-// on(logn)
+// // // on(logn)
 function maxHeapify(arr, n, i) {
   let largest = i;
   let l = 2 * i + 1;
@@ -29,7 +29,7 @@ function heapSort(arr, n) {
     maxHeapify(arr, i, 0);
   }
 }
-const arr = [8, 20, 2, 4, 6];
+const arr = [8, 20, 2, 4, 6]
 heapSort(arr, arr.length);
 console.log(arr);
 

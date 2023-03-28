@@ -1,4 +1,4 @@
-
+// Database indexing:
 class HashTable {
   constructor(size) {
     this.table = new Array(size);
@@ -13,9 +13,7 @@ class HashTable {
     return total % this.size;
   }
 
-  
 //   on(n)
-
   set(key, value) {
     const index = this.hash(key);
     const bucket = this.table[index];
@@ -27,7 +25,7 @@ class HashTable {
         samekeyitems[1] = value;
       } else {
         bucket.push([key, value]);
-      }
+      } 
     }
   }
   

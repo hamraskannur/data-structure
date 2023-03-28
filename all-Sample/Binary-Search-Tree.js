@@ -1,5 +1,3 @@
-
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -69,6 +67,7 @@ class BinarySearchTree {
     this.postOrder(this.right);
     console.log(this.value);
   }
+
   levelOrder() {
     const queue = [];
     queue.push(this.root);
@@ -149,9 +148,9 @@ class BinarySearchTree {
         return null;
       }
       if (!root.left) {
-        return root.right;
+        return root.right
       } else if (!root.right) {
-        return root.left;
+        return root.left
       }
       root.value = this.min(root.right);
       root.right = this.deleteNode(root.right, root.value);

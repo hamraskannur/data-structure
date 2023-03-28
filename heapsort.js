@@ -29,7 +29,7 @@ function heapSort(arr, n) {
     maxHeapify(arr, i, 0);
   }
 }
-const arr = [8, 20, 2, 4, 6];
+const arr = [8, 20, 2, 4, 6,77777777777777777];
 heapSort(arr, arr.length);
 console.log(arr);
 

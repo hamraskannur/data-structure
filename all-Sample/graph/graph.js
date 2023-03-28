@@ -1,5 +1,3 @@
-
-
 class Graph {
     constructor() {
       this.adjacencyList = {};
@@ -41,7 +39,7 @@ class Graph {
       return (
         this.adjacencyList[vertex1].has(vertex2) &&
         this.adjacencyList[vertex2].has(vertex1)
-      );
+      )
     }
   
     display() {
@@ -61,10 +59,10 @@ class Graph {
       }
       visit(vertex);
     }
-  
+
     BFS(graph, vertex) {
-      const visited = new Set();
-      const queue = [vertex];
+    const visited = new Set();
+    const queue = [vertex];
       while (queue.length) {
         const v = queue.shift();
         if (visited.has(v)) continue;
