@@ -1,5 +1,3 @@
-
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -122,7 +120,6 @@ class LinkeList {
     this.head = prev;
   }
 
-
   print() {
     if (this.isEmpty()) {
       console.log("kuist us empty");
@@ -136,6 +133,8 @@ class LinkeList {
       console.log(listValues);
     }
   }
+
+
 }
 
 const list = new LinkeList();

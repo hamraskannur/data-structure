@@ -306,33 +306,36 @@
 // const arr = [0, 0, 1,1,1,1,1,1, 0, 0, 1, 1, 1];
 // console.log(bina(arr));
 
-function newfun(arr) {
-  let index = -1;
-  let count = 0;
-  let changenum=null
-  let num = arr[0];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === num) {
-      num++;
-    } else {
-        count++;
-        index = i ;
-        changenum=num
-        i--;
-        num = arr[i + 1];
-    }
-  }
-  if (count === 1) {
-    console.log(index);
-    arr[index] = changenum
-    return arr;
-  } else if (count === 0) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// function newfun(arr) {
+//   let index = -1;
+//   let count = 0;
+//   let changenum=null
+//   let num = arr[0];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === num) {
+//       num++;
+//     } else {
+//         count++;
+//         index = i ;
+//         changenum=num
+//         i--;
+//         num = arr[i + 1];
+//     }
+//   }
+//   if (count === 1) {
+//     console.log(index);
+//     arr[index] = changenum
+//     return arr;
+//   } else if (count === 0) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
-const arr = [1, 2, 5];
+// const arr = [1, 2, 5];
 
-console.log(newfun(arr));
+// console.log(newfun(arr));
+
+
+
