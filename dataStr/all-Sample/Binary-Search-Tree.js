@@ -23,6 +23,8 @@ class BinarySearchTree {
     }
   }
 
+
+
   insertNode(root, newNode) {
     if (newNode.value < root.value) {
       if (root.left === null) {
@@ -52,16 +54,19 @@ class BinarySearchTree {
       }
     }
   }
+
   preOrder(root) {
     console.log(root.value);
     this.preOrder(root.left);
     this.preOrder(root.right);
   }
+
   inOrder(root) {
     this.inOrder(root.left);
     console.log(root.value);
     this.inOrder(root.right);
   }
+
   postOrder(root) {
     this.postOrder(this.left);
     this.postOrder(this.right);
@@ -148,9 +153,9 @@ class BinarySearchTree {
         return null;
       }
       if (!root.left) {
-        return root.right
+        return root.right;
       } else if (!root.right) {
-        return root.left
+        return root.left;
       }
       root.value = this.min(root.right);
       root.right = this.deleteNode(root.right, root.value);

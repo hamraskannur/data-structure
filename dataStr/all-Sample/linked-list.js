@@ -34,18 +34,6 @@ class LinkeList {
     this.size++;
   }
 
-  append(value){
-    const node=new Node(value)
-    if(this.isEmpty()){
-      this.head=node
-      this.tail=node
-    }else{
-      node.next=this.head
-      node.head=node
-    }
-    this.size++
-  }
-
   // O(1)
   append(value) {
     const node = new Node(value);

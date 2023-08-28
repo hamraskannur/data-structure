@@ -14,6 +14,7 @@ class HashTable {
   }
 
 //   on(n)
+
   set(key, value) {
     const index = this.hash(key);
     const bucket = this.table[index];
@@ -25,7 +26,7 @@ class HashTable {
         samekeyitems[1] = value;
       } else {
         bucket.push([key, value]);
-      } 
+      }
     }
   }
   
@@ -60,4 +61,5 @@ class HashTable {
           }        
     }
   }
+
 }

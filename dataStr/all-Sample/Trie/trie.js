@@ -189,7 +189,7 @@ class TrieNode {
       node = node.parent
     }
     return outPut.join("");
-  };
+  }
 }
 
 class Trie {
