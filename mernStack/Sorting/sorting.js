@@ -1,20 +1,22 @@
 {
+    // https://dev.to/ademoyejohn/codesnap-take-code-screenshots-in-vs-code-ll3
   const arr = [1, 25, 10, 8, 8, 89, 5];
 
   function bubbleSort(arr) {
     let swapped;
-    do {
-      swapped = false;
-      for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > arr[i + 1]) {
-          let temp = arr[i];
-          arr[i] = arr[i + 1];
-          arr[i + 1] = temp;
-          swapped = true;
+    do{
+        swapped=false
+        for (let i = 0; i < arr.length; i++) {
+            if(arr[i]>arr[i+1]){
+               let temp=arr[i]
+               arr[i]=arr[i+1]
+               arr[i+1]=temp
+               swapped=true
+            }
         }
-      }
-    } while (swapped);
-    return arr;
+
+    }while(swapped)
+    return arr
   }
   console.log(bubbleSort(arr));
 }

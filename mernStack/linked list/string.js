@@ -12,7 +12,6 @@ class LinkedList {
     this.size = 0;
   }
 
-  // Append a node at the end of the list
 
   append(value) {
     const newNode = new _Node(value);
