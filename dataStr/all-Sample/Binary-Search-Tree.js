@@ -14,21 +14,20 @@ class BinarySearchTree {
   isEmpty() {
     this.root === null;
   }
+
   insert(value) {
     const newNode = new Node(value);
-    if (this.isEmpty) {
+    if (this.isEmpty()) {
       this.root = newNode;
     } else {
       this.insertNode(this.root, newNode);
     }
   }
 
-
-
   insertNode(root, newNode) {
     if (newNode.value < root.value) {
       if (root.left === null) {
-        root.left = newNode;
+        root.left = newNode;                                  
       } else {
         this.insertNode(root.left, newNode);
       }
@@ -38,7 +37,7 @@ class BinarySearchTree {
       } else {
         this.insertNode(root.right, newNode);
       }
-    }
+    }           
   }
 
   search(root, value) {
@@ -68,9 +67,9 @@ class BinarySearchTree {
   }
 
   postOrder(root) {
-    this.postOrder(this.left);
-    this.postOrder(this.right);
-    console.log(this.value);
+    this.postOrder(root.left);
+    this.postOrder(root.right);
+    console.log(root.value);
   }
 
   levelOrder() {
