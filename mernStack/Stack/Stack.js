@@ -10,6 +10,7 @@ class LinkedList{
         this.head=null
         this.size=0
     }
+    //  o(1)
 
     push(value){
         const newNode=new Node(value)
@@ -23,7 +24,7 @@ class LinkedList{
         this.size++
         
     }
-    
+    //  o(1)
     pop(){
         if(!this.head)return null
         let temp=this.head

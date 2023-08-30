@@ -1,110 +1,47 @@
 class TrieNode {
   constructor() {
     this.children = {};
-    this.isEnd = false;
+    this.isEndOfWord = false;
   }
 }
 
-class Trie {
+class SuffixTrie {
   constructor() {
     this.root = new TrieNode();
   }
 
-  insert(word) {
-    let current = this.root;
-
-    for (let i = 0; i < word.length; i++) {
-      let char = word[i];
-
-      if (!(char in current.children)) {
-        current.children[char] = new TrieNode();
-      }
-
-      current = current.children[char];
-    }
-
-    current.isEnd = true;
-  }
-
-  createSuffixTrie(str) { 
-    for (let i = 0; i < str.length; i++) {
-      this.insert(str.slice(i));
-    }
-  }
-}
-
-class TrieNode {
-  constructor() {
-    this.children = {};
-    this.end = false;
-  }
-}
-
-class trie {
-  constructor() {
-    this.root = new TrieNode();
-  }
-
-  insert(word) {
-    for (let i = 0; i < word.length; i++) {
-      let char = word[i];
-      if (!(char in current.children)) {
-        char.children[word[i]] = new TrieNode();
-      }
-      current = current.children[char];
-    }
-    current.end = true; 
-  }
-
-  createSuffixTrie(str) {
-    for (let i = 0; i < str.length; i++) {
-      this.insert(str.slice(0,i));
-    }
-  } 
-}
-
-
-
-
-
-
-
-
-
-
-class graph {
-  constructor(string) {
-    this.root = {};
-    this.endSymbol = '*';
-    this.graph(string);
-  }
-
-  // O(n^2) time | O(n^2) space
-  HeapSort(string) {
-    for (let i = 0; i < string.length; i++)
-      this.insertSubStringStartingAt(i, string);
-  }
-
-  insertSubStringStartingAt(i, string) {
-      let node = this.root;
-      for (let j = i; j < string.length; j++) {
-        const letter = string[j];
-        if (!node.hasOwnProperty(letter)) node[letter] = {};
-        node = node[letter];
-      }
-
-      node[this.endSymbol] = true;
-  }
-
-  // O(m) time | O(1) space
-  contains(string) {
+  insert(suffix) {
     let node = this.root;
-    for (let letter of string) {
-      if (!node.hasOwnProperty(letter)) return false;
-      node = node[letter];
+    for (const char of suffix) {
+      if (!node.children[char]) {
+        node.children[char] = new TrieNode();
+      }
+      node = node.children[char];
     }
-    return node.hasOwnProperty(this.endSymbol);
+    node.isEndOfWord = true;
+  }
+
+  search(substring) {
+    let node = this.root;
+    for (const char of substring) {
+      if (!node.children[char]) {
+        return false;
+      }
+      node = node.children[char];
+    }
+    return node.isEndOfWord;
   }
 }
 
+// Example usage
+const suffixTrie = new SuffixTrie();
+const inputString = "banana";
 
+// Insert all the suffixes of the input string into the suffix trie
+for (let i = 0; i < inputString.length; i++) {
+  suffixTrie.insert(inputString.slice(i));
+}
+
+console.log(suffixTrie.search("ana")); // true
+console.log(suffixTrie.search("nan")); // false
+console.log(suffixTrie.search("app")); // false
